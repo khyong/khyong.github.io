@@ -10,4 +10,4 @@ paperurl: 'http://khyong.github.io/files/paper_neurips2022.pdf'
 citation: 'Kim, H. (2022). Spherization Layer: Representation Using Only Angles. Advances in Neural Information Processing Systems, 35, 16398-16410'
 ---
 
-The contents above will be part of a list of publications, if the user clicks the link for the publication than the contents of section will be rendered as a full page, allowing you to provide more information about the paper for the reader. When publications are displayed as a single page, the contents of the above "citation" field will automatically be included below this section in a smaller font.
+Spherization layer is an explicit solution for the dispersion to completely eliminate the interference of the Euclidean norms in training without drawbacks
