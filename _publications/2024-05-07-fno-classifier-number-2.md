@@ -2,7 +2,7 @@
 title: "Fixed Non-negative Orthogonal Classifier: Inducing Zero-mean Neural Collapse with Feature Dimension Separation"
 collection: publications
 permalink: /publication/2024-05-07-fno-classifier-number-2
-excerpt: 'How the collapse between class means and class weight vectros occurs in a fixed classifier when its shape is not a simplex?'
+excerpt: 'How the collapse between class means and class weight vectors occurs in a fixed classifier when its shape is not a simplex?'
 date: 2024-05-07
 venue: 'ICLR'
 slidesurl: 'http://khyong.github.io/files/slides_iclr2024.pdf'
