@@ -33,7 +33,7 @@ Work experience
 * Jul. 2015 - Feb. 2018: Research Intern
   * [DILAB](http://dilab.kunsan.ac.kr/) (Data Mining & Artificial Intelligence Lab.) in School of Software, Kunsan National University ([KSNU](https://www.kunsan.ac.kr/en/index.kunsan))
   * Duties included: Deep Learning Model for Traffic Accident Points Prediction
-  * Supervisor: Prof. Byoung-won On ([Google Scholar](https://scholar.google.com/citations?user=19kscYoAAAAJ&hl=en))
+  * Supervisor: Prof. Byung-won On ([Google Scholar](https://scholar.google.com/citations?user=19kscYoAAAAJ&hl=en))
   
 Skills
 ======
