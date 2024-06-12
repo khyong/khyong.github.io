@@ -24,8 +24,8 @@ author:
   avatar           : "profile_hoyong.png"
   name             : "Hoyong Kim"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Seoul/Asia"
+  bio              : "Hoyong Kim is a Ph.D. candidate in Artificial Intelligence at the AI Graduate School of the Gwangju Institute of Science and Technology (GIST) in South Korea, where he is advised by Professor Kangil Kim. His research interests are broad and include representation learning, computer vision, and natural language processing. His contributions to the field are reflected in several publications and conference presentations. Notably, he has presented his work on the 'Fixed Non-negative Orthogonal Classifier' and the 'Spherization Layer' at prestigious conferences like the International Conference on Learning Representations (ICLR) and Advances in Neural Information Processing Systems (NeurIPS)."
+  location         : "Gwangju in South Korea"
   employer         : "GIST"
   uri              : # URL
   email            : "hoyong.kim.96@gmail.com" 
