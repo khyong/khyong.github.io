@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV [Download CV](http://khyong.github.io/files/CV_HoyongKim.pdf)"
+title: "CV"
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -8,6 +8,12 @@ redirect_from:
 ---
 
 {% include base_path %}
+
+
+
+PDF file of CV
+=====
+[Download CV](http://khyong.github.io/files/CV_HoyongKim.pdf)
 
 Education
 ======
@@ -25,7 +31,7 @@ Work experience
 * Mar. 2019 - Aug. 2020: Research Student
   * Research Data Sharing Center in Div. of National S&T Data, KISTI
   * Duties included: Develop clustering module for issue analysis from news articles
-  * Supervisor: Prof. Dong-min Seo ([Google Scholar](https://scholar.google.com/citations?user=v55x1EIAAAAJ&hl=ko))
+  * Supervisor: Prof. Dongmin Seo ([Google Scholar](https://scholar.google.com/citations?user=v55x1EIAAAAJ&hl=ko))
 
 * Jul. 2015 - Feb. 2018: Research Intern
   * [DILAB](http://dilab.kunsan.ac.kr/) (Data Mining & Artificial Intelligence Lab.) in School of Software, Kunsan National University ([KSNU](https://www.kunsan.ac.kr/en/index.kunsan))
