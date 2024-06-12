@@ -9,11 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
-
-
-PDF file of CV
-=====
 [Download CV](http://khyong.github.io/files/CV_HoyongKim.pdf)
+
 
 Education
 ======
