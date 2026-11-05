@@ -1,0 +1,94 @@
+{% comment %}
+  Local override of al_folio_core's news.liquid.
+  On the about page (include.limit = true) only news from the last 365 days is shown by default;
+  older items are collapsed behind a "show older news" toggle. The cutoff is computed at build
+  time in Liquid (site.time) and refreshed in the browser with the visitor's current date.
+  The /news/ page (no limit) still lists everything.
+{% endcomment %}
+<div class="news">
+  {% if site.news != blank %}
+    {% assign news_size = site.news | size %}
+    {% assign now_ts = site.time | date: '%s' | plus: 0 %}
+    {% assign cutoff_ts = now_ts | minus: 31536000 %}
+    {% assign older_count = 0 %}
+    <div
+      class="table-responsive"
+      {% if include.limit %}
+        data-news-cutoff="{{ cutoff_ts }}"
+      {% endif %}
+    >
+      <table class="table table-sm table-borderless">
+        {% assign news = site.news | reverse %}
+        {% if include.limit and page.announcements.limit %}
+          {% assign news_limit = page.announcements.limit %}
+        {% else %}
+          {% assign news_limit = news_size %}
+        {% endif %}
+        {% for item in news limit: news_limit %}
+          {% assign item_ts = item.date | date: '%s' | plus: 0 %}
+          {% assign is_older = false %}
+          {% if include.limit and item_ts < cutoff_ts %}
+            {% assign is_older = true %}
+            {% assign older_count = older_count | plus: 1 %}
+          {% endif %}
+          <tr
+            data-news-date="{{ item_ts }}"
+            {% if is_older %}
+              class="news-older"
+            {% endif %}
+          >
+            <th scope="row" style="width: 20%">{{ item.date | date: '%b %d, %Y' }}</th>
+            <td>
+              {% if item.inline %}
+                {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+              {% else %}
+                <a class="news-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+    {% if include.limit %}
+      <button
+        type="button"
+        class="news-toggle"
+        aria-expanded="false"
+        {% if older_count == 0 %}
+          hidden
+        {% endif %}
+      >
+        <span class="news-toggle-show"
+          >Show older news (<span class="news-older-count">{{ older_count }}</span>)</span
+        >
+        <span class="news-toggle-hide">Hide older news</span>
+      </button>
+      <script>
+        (function () {
+          var container = document.querySelector('.news .table-responsive[data-news-cutoff]');
+          var toggle = document.querySelector('.news .news-toggle');
+          if (!container || !toggle) return;
+          // Recompute "older than one year" with the visitor's clock so a stale build stays correct.
+          var cutoff = Math.floor(Date.now() / 1000) - 31536000;
+          var rows = container.querySelectorAll('tr[data-news-date]');
+          var older = 0;
+          rows.forEach(function (row) {
+            var isOlder = parseInt(row.getAttribute('data-news-date'), 10) < cutoff;
+            row.classList.toggle('news-older', isOlder);
+            if (isOlder) older += 1;
+          });
+          var count = toggle.querySelector('.news-older-count');
+          if (count) count.textContent = older;
+          toggle.hidden = older === 0;
+          toggle.addEventListener('click', function () {
+            var expanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            container.classList.toggle('news-show-older', !expanded);
+          });
+        })();
+      </script>
+    {% endif %}
+  {% else %}
+    <p>No news so far...</p>
+  {% endif %}
+</div>

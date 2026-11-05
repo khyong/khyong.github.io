@@ -1,0 +1,144 @@
+cv:
+  name: Hoyong Kim
+  label: Postdoctoral Researcher
+  email: hoyong.kim.96@gmail.com
+  location: Seoul, Republic of Korea
+  image: ""
+  summary: >
+    Postdoctoral researcher at the Visual & Geometric Intelligence Lab, Seoul National University.
+    I study how deep networks organize information in their representation space (Neural Collapse,
+    representation collapse) and extend this geometric view to the interpretability of
+    vision-language-action models and world models for robotics.
+
+  social_networks:
+    - network: GitHub
+      username: khyong
+    - network: LinkedIn
+      username: hoyong-kim-66220a175
+    - network: Google Scholar
+      username: PaBLiH4AAAAJ
+
+  sections:
+    Education:
+      - institution: Gwangju Institute of Science and Technology (GIST)
+        location: Gwangju, Republic of Korea
+        url: https://www.gist.ac.kr
+        area: Artificial Intelligence
+        studyType: Ph.D.
+        start_date: 2021-03
+        end_date: 2026-02
+        highlights:
+          - "Advisor: Prof. Kangil Kim, Intelligence Representation & Reasoning Lab (IRR Lab)"
+          - "Dissertation: From Theory to Remedy: Addressing Representation Collapse for Enhanced Class-Discriminative Clarity"
+
+      - institution: University of Science and Technology (UST), KISTI Campus
+        location: Daejeon, Republic of Korea
+        url: https://www.ust.ac.kr
+        area: Big-Data Science
+        studyType: M.S.
+        start_date: 2018-03
+        end_date: 2020-08
+        highlights:
+          - "Advisor: Prof. Dong-min Seo"
+          - "Thesis: Study on Text Mining and Clustering for Issue Analysis on News Articles"
+
+      - institution: Ajou University
+        location: Suwon, Republic of Korea
+        url: https://www.ajou.ac.kr
+        area: Software
+        studyType: B.S.
+        start_date: 2014-03
+        end_date: 2018-02
+
+    Experience:
+      - company: Visual & Geometric Intelligence Lab, Seoul National University
+        url: https://jaesik.info/
+        position: Postdoctoral Researcher
+        location: Seoul, Republic of Korea
+        start_date: 2026-05
+        end_date: present
+        summary: Working with Prof. Jaesik Park on mechanistic interpretability of vision-language-action models and world models for robotics.
+
+      - company: Intelligence Representation & Reasoning Lab (IRR Lab), AI Graduate School, GIST
+        position: Research Assistant
+        location: Gwangju, Republic of Korea
+        start_date: 2020-09
+        end_date: 2021-02
+        highlights:
+          - Analyzed the search space of neural networks and how restricting models to an effective search space helps training.
+
+      - company: Research Data Sharing Center, Division of National S&T Data, KISTI
+        position: Research Student
+        location: Daejeon, Republic of Korea
+        start_date: 2019-03
+        end_date: 2020-08
+        highlights:
+          - Developed a clustering module for issue analysis from news articles, improving both speed and accuracy.
+          - Built a gold-standard Korean synonym dataset from the Korean Open Dictionary and a Siamese network for synonym similarity.
+
+      - company: Data Mining & Artificial Intelligence Lab (DILAB), Kunsan National University
+        position: Research Intern
+        location: Gunsan, Republic of Korea
+        start_date: 2015-07
+        end_date: 2018-02
+        highlights:
+          - Deep learning model for traffic accident point prediction from about 10,000 sensing records in Daegu, Korea.
+          - Web document classification for people with the same name, e-mail record analysis, and sentiment analysis on news articles.
+
+    Teaching:
+      - company: AI Graduate School, GIST
+        position: Teaching Assistant, Natural Language Processing
+        location: Gwangju, Republic of Korea
+        start_date: 2022-03
+        end_date: 2022-06
+        summary: Graduate course covering NLP fundamentals, statistical relational learning, and Transformer-based models, with six lab projects.
+
+    Awards:
+      - title: RA Student Research Achievement Scholarship
+        date: 2024
+        awarder: GIST AI Graduate School
+        summary: Awarded in 2023 and 2024.
+      - title: Excellence Prize, Graduate Student Research Poster Exhibition
+        date: 2022
+        awarder: GIST AI Graduate School
+      - title: Minister's Commendation, 3rd Government Innovation Proposal Hackathon
+        date: 2020
+        awarder: Ministry of the Interior and Safety, Republic of Korea
+      - title: Excellence Prize, Campus Patent Universiade
+        date: 2020
+        awarder: Korea Invention Promotion Association (KIPA)
+      - title: Best Paper Award, ICCC 2019
+        date: 2019
+        awarder: Korea Contents Association
+      - title: Best Paper Award, KCA 2018 Spring Conference
+        date: 2018
+        awarder: Korea Contents Association
+      - title: Grand Prize, Ajou Creative Software Festival
+        date: 2016
+        awarder: Ajou University
+
+    Academic Service:
+      - label: Reviewer
+        details: ICLR 2025, NeurIPS 2025, ICLR 2026, ICML 2026 (Gold Reviewer)
+
+    Skills:
+      - name: Programming
+        icon: fa-solid fa-code
+        keywords: "Python, PyTorch, C, Java, TensorFlow"
+      - name: Tools
+        icon: fa-solid fa-screwdriver-wrench
+        keywords: "Linux, Git, LaTeX, Vim"
+      - name: Background
+        icon: fa-solid fa-book
+        keywords: "Linear Algebra, Numerical Optimization, Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, Data Mining"
+
+    Interests:
+      - name: Research Interests
+        icon: fa-solid fa-tag
+        keywords: "Neural Collapse, Representation Learning Theory, Mechanistic Interpretability of VLA Models, World Models, Imbalanced Learning, Continual Learning"
+
+    Languages:
+      - name: Korean
+        summary: "Native speaker"
+      - name: English
+        summary: "Fluent"

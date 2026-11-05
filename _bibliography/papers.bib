@@ -1,0 +1,251 @@
+---
+---
+
+% Publication list for khyong.github.io (al-folio / jekyll-scholar)
+% Custom fields used by al-folio: abbr, selected, bibtex_show, preview, pdf, arxiv, html, video, slides, code, award, award_name
+% preview images live in assets/img/publication_preview/
+% pdf / slides without a full URL are resolved relative to /assets/pdf/
+
+% ===================== Conferences =====================
+
+@inproceedings{kim2026mixedlabel,
+  title     = {Does Mixed Label Imbalance Matter to Minority Collapse in Imbalanced Learning?},
+  author    = {Kim, Hoyong and Kim, Kangil},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2026},
+  abbr      = {NeurIPS},
+  selected  = {true},
+  bibtex_show = {true},
+  preview   = {balancing_mixed_labels.png},
+  html      = {https://openreview.net/forum?id=0g48FtWsjv},
+  website   = {https://neurips.cc/virtual/2026/loc/sydney/poster/156069},
+  abstract  = {Minority collapse, where minority classes become indistinguishable, is a significant challenge in imbalanced learning. This challenge is addressed by methods such as Mixup with class-balanced sampling. Although minority collapse has been mathematically analyzed using the layer-peeled model alongside Neural Collapse, no prior work has analyzed minority collapse under Mixup, particularly from the perspective of mixed labels. We investigate this overlooked factor and raise the question: Is mixed label balance important for alleviating minority collapse? Our analysis reveals that (i) mixed labels should be balanced, and (ii) in this setting, interpreting mixed labels as singletons is beneficial. Motivated by this analysis, we propose a Balanced Mixed Label Sampler and a Mixed-Singleton classifier, which balance mixed labels and treat them as singleton labels. Through theoretical analysis and experimental results, we highlight the importance of balancing mixed labels in imbalanced learning.}
+}
+
+@inproceedings{kang2026factorwise,
+  title     = {Factor-Wise Homogeneity of Slot-Attention for Continual Object-Centric Learning},
+  author    = {Kang, Ilmin and Kim, Hoyong and Bang, Seungju and Kang, Minwoo and Kim, Kangil},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year      = {2026},
+  abbr      = {ICML},
+  bibtex_show = {true},
+  preview   = {factorwise_homogeneity.png},
+  html      = {https://openreview.net/forum?id=fkWi30dE74},
+  website   = {https://icml.cc/virtual/2026/poster/62534},
+  slides    = {https://icml.cc/media/icml-2026/Slides/62534.pdf},
+  code      = {https://github.com/GIST-IRR/FWH_COCL},
+  abstract  = {While Object-Centric Learning has shown great promise in modular perception, its extension to Continual Learning remains underexplored. In this work, we observe that Slot Attention exhibits a distinctive behavior: it organizes latent representations into small and separated regions, each of which preserves identical factor states, crucially emerging not only in the current task but also across sequential tasks with novel factors. This inter-task separation offers significant advantages in continual learning, which typically suffers from severe object-wise forgetting. We refer to this phenomenon as Factor-Wise Homogeneity, and show that this intrinsic inter-task separation is crucial, serving as a key mechanism to prevent catastrophic forgetting in Continual Object-Centric Learning. However, despite its strong robustness, factor-wise homogeneity alone is insufficient due to the bottleneck in exploiting this separation at the decoder. To overcome this limitation and demonstrate the significance of our findings, we show that a minimal strategy, Decoder-only Post-Replay, which freezes the factor-wise homogeneous representations and employs decoder-only fine-tuning, is sufficient. This work serves as a fundamental basis for understanding and leveraging the intrinsic dynamics of Slot Attention, offering essential insights for advancing object-centric systems.}
+}
+
+@inproceedings{jung2026layercentric,
+  title     = {Layer-Centric Factors of Variation Disentanglement for Task- and Model-Agnostic Generalization},
+  author    = {Jung, Hee-Jun and Park, Jongmin and Kang, Minwoo and Kim, Hoyong and Kim, Kangil},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year      = {2026},
+  abbr      = {ICML},
+  bibtex_show = {true},
+  preview   = {osp_layer.png},
+  html      = {https://openreview.net/forum?id=QE9b2nOWi2},
+  website   = {https://icml.cc/virtual/2026/poster/64178},
+  slides    = {https://icml.cc/media/icml-2026/Slides/64178_OU51pON.pdf},
+  code      = {https://github.com/GIST-IRR/OSP_layer},
+  abstract  = {Disentanglement learning aims to separate the underlying factors of variation (FoV) to improve generalization. However, most FoV-based latent-vector-centric methods impose objective-driven constraints at a bottleneck, and it is difficult to translate disentanglement into consistent gains on downstream tasks without inductive bias. Motivated by architectural approaches complementary to vector-centric objectives for downstream tasks, we propose the Orthogonal Subspaces Projection (OSP) layer, a plug-and-play module that integrates into intermediate layers and promotes FoV separation by projecting latent features into mutually orthogonal subspaces. Across diverse domains and tasks, models equipped with the OSP layer improve disentanglement quality and generalization in downstream tasks, including computer vision (classification, detection, and segmentation), natural language processing (word analogy, and text classification), and fine-tuning settings on large backbones.}
+}
+
+@inproceedings{kim2024revisiting,
+  title     = {Revisiting Softmax Masking: Stop Gradient for Enhancing Stability in Replay-based Continual Learning},
+  author    = {Kim, Hoyong and Kwon, Minchan and Kim, Kangil},
+  booktitle = {Conference on Lifelong Learning Agents (CoLLAs), Workshop Track},
+  year      = {2024},
+  abbr      = {CoLLAs},
+  bibtex_show = {true},
+  preview   = {softmax_masking.png},
+  arxiv     = {2309.14808},
+  pdf       = {https://drive.google.com/file/d/1p5dw7uN45ch2ZDyIkygKX1Y7rb0PpoFK/view},
+  video     = {https://lifelong-ml.cc/Conferences/2024/acceptedpapersandvideos/conf-2024-66},
+  abstract  = {In replay-based continual learning, softmax masking can destabilize training because of gradients from masked logits. We revisit softmax masking and show that applying stop-gradient to the masked terms enhances stability and reduces class-wise interference in the last-layer features and classifier.}
+}
+
+@inproceedings{kim2024asymptotic,
+  title     = {Asymptotic Midpoint Mixup for Margin Balancing and Moderate Broadening},
+  author    = {Kim, Hoyong and Lee, Semi and Kim, Kangil},
+  booktitle = {Conference on Lifelong Learning Agents (CoLLAs), Workshop Track},
+  year      = {2024},
+  abbr      = {CoLLAs},
+  bibtex_show = {true},
+  preview   = {am_mixup.jpg},
+  arxiv     = {2401.14696},
+  pdf       = {https://drive.google.com/file/d/13vvfaUs_a9IEMK7fZwj77E9gX69r0CJZ/view},
+  video     = {https://lifelong-ml.cc/Conferences/2024/acceptedpapersandvideos/conf-2024-73},
+  abstract  = {We analyze how mixup-style augmentation shapes the margins between classes in feature space and propose asymptotic midpoint mixup, which generates samples that approach the midpoint between classes to balance margins while only moderately broadening the feature distribution.}
+}
+
+@inproceedings{kim2024fixed,
+  title     = {Fixed Non-negative Orthogonal Classifier: Inducing Zero-mean Neural Collapse with Feature Dimension Separation},
+  author    = {Kim, Hoyong and Kim, Kangil},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2024},
+  abbr      = {ICLR},
+  selected  = {true},
+  bibtex_show = {true},
+  preview   = {fnoc.jpg},
+  html      = {https://openreview.net/forum?id=F4bmOrmUwc},
+  pdf       = {https://openreview.net/pdf?id=F4bmOrmUwc},
+  slides    = {slides_iclr2024.pdf},
+  video     = {https://iclr.cc/virtual/2024/poster/19083},
+  abstract  = {Fixed classifiers in deep networks induce neural collapse toward a simplex equiangular tight frame. We study what happens when the fixed classifier is not a simplex and introduce the fixed non-negative orthogonal classifier, which achieves global optimality in the layer-peeled model while inducing zero-mean neural collapse and feature dimension separation, with benefits for continual and imbalanced learning.}
+}
+
+@inproceedings{kim2022spherization,
+  title     = {Spherization Layer: Representation Using Only Angles},
+  author    = {Kim, Hoyong and Kim, Kangil},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {35},
+  pages     = {16398--16410},
+  year      = {2022},
+  abbr      = {NeurIPS},
+  selected  = {true},
+  bibtex_show = {true},
+  preview   = {spherization.png},
+  html      = {https://proceedings.neurips.cc/paper_files/paper/2022/hash/67f30132d98e758f7b4e28c36091d86e-Abstract-Conference.html},
+  pdf       = {https://proceedings.neurips.cc/paper_files/paper/2022/file/67f30132d98e758f7b4e28c36091d86e-Paper-Conference.pdf},
+  slides    = {slides_neurips2022.pdf},
+  video     = {https://neurips.cc/virtual/2022/poster/53555},
+  abstract  = {We propose the spherization layer, which represents features using only angles on a hypersphere so that the norm carries no information. The layer preserves the expressiveness of conventional layers while making angular similarity the sole carrier of information, and we show its benefits across vision and language tasks.}
+}
+
+@article{jung2021learning,
+  title     = {Learning from Matured Dumb Teacher for Fine Generalization},
+  author    = {Jung, HeeSeung and Kim, Kangil and Kim, Hoyong and Shin, Jong-Hun},
+  journal   = {arXiv preprint arXiv:2108.05776},
+  year      = {2021},
+  abbr      = {arXiv},
+  bibtex_show = {true},
+  preview   = {dumb_teacher.jpg},
+  arxiv     = {2108.05776}
+}
+
+@inproceedings{maingoc2020dprelu,
+  title     = {DPReLU: Dynamic Parametric Rectified Linear Unit},
+  author    = {Mai Ngoc, Kien and Yang, Donghun and Shin, Iksoo and Kim, Hoyong and Hwang, Myunggwon},
+  booktitle = {International Conference on Smart Media and Applications (SMA)},
+  pages     = {121--125},
+  year      = {2020},
+  doi       = {10.1145/3426020.3426049},
+  abbr      = {SMA},
+  bibtex_show = {true},
+  preview   = {dprelu.jpg},
+  pdf       = {https://dl.acm.org/doi/pdf/10.1145/3426020.3426049}
+}
+
+@inproceedings{yang2020ood,
+  title     = {Out-of-Distribution Detection Based on Distance Metric Learning},
+  author    = {Yang, Donghun and Shin, Iksoo and Mai Ngoc, Kien and Kim, Hoyong and Yu, Chanhee and Hwang, Myunggwon},
+  booktitle = {International Conference on Smart Media and Applications (SMA)},
+  pages     = {214--218},
+  year      = {2020},
+  doi       = {10.1145/3426020.3426076},
+  abbr      = {SMA},
+  bibtex_show = {true},
+  preview   = {ood_metric.jpg},
+  pdf       = {https://dl.acm.org/doi/pdf/10.1145/3426020.3426076}
+}
+
+@inproceedings{kim2019hierarchical,
+  title     = {Hierarchical Clustering of News Articles for Semi-Real-time Issue Analysis},
+  author    = {Kim, Hoyong and Jang, Hongjun and Lee, Seungwoo and Seo, Dongmin},
+  booktitle = {Korea Software Congress (KSC), Korean Institute of Information Scientists and Engineers},
+  year      = {2019},
+  note      = {in Korean},
+  abbr      = {KSC},
+  preview   = {news_clustering.jpg},
+  pdf       = {https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE09301608&width=1920}
+}
+
+@inproceedings{seo2019flooding,
+  title     = {Development of Web Crawler and Network Analysis Technology for Occurrence and Prediction of Flooding},
+  author    = {Seo, Dongmin and Kim, Hoyong and Lee, Jeongha and Hwang, Seokhwan},
+  booktitle = {Korea Contents Association Spring Conference (KCA)},
+  year      = {2019},
+  note      = {in Korean},
+  abbr      = {KCA},
+  preview   = {flooding.jpg},
+  pdf       = {https://koreascience.kr/article/CFKO201920461758639.pdf}
+}
+
+@inproceedings{jin2019kbl,
+  title     = {Prediction of Korean Basketball League Playoff Power-Ranking Based on Recurrent Neural Networks Using KBL Efficiency},
+  author    = {Jin, Seung-Kyo and Kim, Hoyong and Song, Sa-kwang},
+  booktitle = {International Conference on Convergence Content (ICCC), Korea Contents Association},
+  year      = {2019},
+  abbr      = {ICCC},
+  award_name = {Best Paper Award},
+  award     = {Best Paper Award at ICCC 2019.},
+  preview   = {kbl.jpg},
+  pdf       = {https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE09282565}
+}
+
+@inproceedings{kim2018word,
+  title     = {A Word Semantic Similarity Measure Model Using Korean Open Dictionary},
+  author    = {Kim, Hoyong and Lee, Min-Ho and Seo, Dongmin},
+  booktitle = {Korea Contents Association Spring Conference (KCA)},
+  year      = {2018},
+  note      = {in Korean},
+  abbr      = {KCA},
+  award_name = {Best Paper Award},
+  award     = {Best Paper Award (oral) at the KCA 2018 Spring Conference.},
+  html      = {https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE07441617}
+}
+
+% ===================== Journals =====================
+
+@article{jung2026impact,
+  title     = {The Impact of Enforcing Representational Consistency of Identical Transformations for Disentangled Representation},
+  author    = {Jung, Hee-Jun and Kim, Hoyong and Kang, Ilmin and Kim, Kangil},
+  journal   = {Transactions on Machine Learning Research (TMLR)},
+  issn      = {2835-8856},
+  year      = {2026},
+  abbr      = {TMLR},
+  bibtex_show = {true},
+  html      = {https://openreview.net/forum?id=VjbBxj4aWb},
+  code      = {https://github.com/GIST-IRR/RCIT},
+  abstract  = {Recent symmetry-based approaches in Variational Autoencoders (VAEs) have advanced disentanglement learning and compositional generalization. However, existing methods can encode identical semantic transformations differently depending on the specific sample pairs, which reduce the representational consistency of identical transformations. In this paper, we analyze how three commonly used symmetry parameterization families in prior work, namely (1) matrix-exponential parameterizations over the general linear group GL(n), (2) vector-additive actions in latent space, and (3) surjective mappings from latent vectors to the unit circle, can make it difficult to represent identical transformations consistently in dimension-wise disentangled latent spaces. To address this issue, we propose a framework that maps latent vectors to a bijective cyclic representation on the unit circle via the Cayley transform, together with a fixed-grid codebook regularization. We study this problem in a controlled setting and develop practical weakly supervised and supervised variants. Experiments on disentanglement benchmarks and compositional generalization tasks show that the proposed framework yields improved disentanglement performance and strong compositional generalization under supervised settings, with the stronger-supervision variants providing empirical reference points for the representational capacity of the framework. Overall, our results suggest that consistent representation of identical transformations is a useful design principle for improving disentanglement and generalization performance in the considered setting.}
+}
+
+@article{kim2020hierarchical,
+  title     = {Hierarchical and Incremental Clustering for Semi-Real-time Issue Analysis on News Articles},
+  author    = {Kim, Hoyong and Lee, Seungwoo and Jang, Hongjun and Seo, Dongmin},
+  journal   = {The Journal of the Korea Contents Association},
+  volume    = {20},
+  number    = {6},
+  pages     = {556--578},
+  year      = {2020},
+  note      = {in Korean},
+  abbr      = {JKCA},
+  preview   = {news_clustering_journal.jpg},
+  pdf       = {https://koreascience.kr/article/JAKO202018955008139.pdf}
+}
+
+@article{kim2019feature,
+  title     = {Feature Selection and Visualization Based on Expectation Maximization and Principal Component Analysis for Traffic Accidents Point Prediction},
+  author    = {Kim, Hoyong and Kim, Jeong-Jae and Park, Sang-Min and Song, In-Hwan and On, Byung-Won},
+  journal   = {Journal of the HCI Society of Korea},
+  volume    = {14},
+  number    = {4},
+  pages     = {13--23},
+  year      = {2019},
+  note      = {in Korean},
+  abbr      = {HCI Korea},
+  pdf       = {https://www.dbpia.co.kr/pdf/pdfView.do?nodeId=NODE09285514&width=958}
+}
+
+% ===================== Thesis =====================
+
+@phdthesis{kim2026thesis,
+  title     = {From Theory to Remedy: Addressing Representation Collapse for Enhanced Class-Discriminative Clarity},
+  author    = {Kim, Hoyong},
+  school    = {Gwangju Institute of Science and Technology (GIST)},
+  year      = {2026},
+  abbr      = {Ph.D.},
+  html      = {https://scholar.gist.ac.kr/handle/local/33750}
+}

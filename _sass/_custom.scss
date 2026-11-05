@@ -1,0 +1,86 @@
+// Site-local style overrides for khyong.github.io.
+// Loaded last from assets/css/main.scss (a local copy of the al_folio_core entry file).
+
+// The CV timeline grid (.col-md-2 / .col-md-10) is applied at every viewport width by the
+// core stylesheet, so on phones the date column collapses to ~60px and the badge overlaps the
+// entry title. Stack the columns below the md breakpoint instead.
+@media (max-width: 767.98px) {
+  .cv .row > .col-md-2,
+  .cv .row > .col-md-10,
+  .cv .row > .col-md-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .cv .date-column {
+    width: auto;
+    transform: none;
+    text-align: left !important;
+
+    table.table-cv {
+      display: inline-table;
+      width: auto;
+    }
+
+    p.location {
+      margin: 0;
+    }
+  }
+
+  .cv .row > .col-md-10 {
+    margin-top: 0.25rem;
+  }
+}
+
+// News on the about page: items older than one year are collapsed behind a toggle
+// (see _includes/news.liquid).
+.news {
+  .table-responsive:not(.news-show-older) tr.news-older {
+    display: none;
+  }
+
+  .news-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0.25rem 0 1.5rem;
+    font-size: 0.85rem;
+    color: var(--global-theme-color);
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    .news-toggle-hide {
+      display: none;
+    }
+
+    &[aria-expanded="true"] {
+      .news-toggle-show {
+        display: none;
+      }
+      .news-toggle-hide {
+        display: inline;
+      }
+    }
+  }
+}
+
+// Accent color (links, active nav item, venue badges, CV date badges, toggles).
+// Darker green on the white background for readable links; lighter green in dark mode.
+:root {
+  --global-theme-color: #2e9e67;
+  --global-hover-color: #2e9e67;
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #4cc38a;
+  --global-hover-color: #4cc38a;
+}
+
+// CV timeline: let long location names wrap inside the date column instead of
+// running into the entry title.
+.cv .date-column p.location {
+  white-space: normal;
+}
