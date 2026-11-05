@@ -1,0 +1,212 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <title> Mechanistic interpretability of VLA models | Hoyong Kim </title> <meta name="author" content="Hoyong Kim"> <meta name="description" content="What do vision-language-action models represent, and how is their latent space organized?"> <meta name="keywords" content="Hoyong Kim, neural collapse, representation learning, imbalanced learning, continual learning, VLA, mechanistic interpretability, world models, Seoul National University, GIST"> <meta property="og:site_name" content="Hoyong Kim"> <meta property="og:type" content="website"> <meta property="og:title" content="Hoyong Kim | Mechanistic interpretability of VLA models"> <meta property="og:url" content="https://khyong.github.io/projects/1_vla_interpretability/"> <meta property="og:description" content="What do vision-language-action models represent, and how is their latent space organized?"> <meta property="og:image" content="https://khyong.github.io/assets/img/prof_pic.jpg"> <meta property="og:locale" content="en"> <meta name="twitter:card" content="summary"> <meta name="twitter:title" content="Mechanistic interpretability of VLA models"> <meta name="twitter:description" content="What do vision-language-action models represent, and how is their latent space organized?"> <meta name="twitter:image" content="https://khyong.github.io/assets/img/prof_pic.jpg"> <script type="application/ld+json">
+    {
+        "author":
+        {
+            "@type": "Person",
+            "name": "Hoyong Kim"
+        },
+        "url": "https://khyong.github.io/projects/1_vla_interpretability/",
+        "@type": "WebSite",
+        "description": "What do vision-language-action models represent, and how is their latent space organized?",
+        "headline": "Mechanistic interpretability of VLA models",
+        
+        "sameAs": ["https://scholar.google.com/citations?user=PaBLiH4AAAAJ","https://github.com/khyong","https://www.linkedin.com/in/hoyong-kim-66220a175","https://orcid.org/0000-0002-1608-1939",null],
+        
+        "name": "Hoyong Kim",
+        "@context": "https://schema.org"
+    }
+  </script> <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; media-src 'self' https:; frame-src 'self' https:; connect-src 'self' https:;"> <style>
+  :root {
+    --max-content-width: 930px;
+  }
+</style> <link rel="stylesheet" href="/assets/css/tailwind.css?v=50c64c15cbb9fd1ce6056fdb8bcb4b62"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css" integrity="sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css" integrity="sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw=" crossorigin="anonymous"> <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scholar-icons@1.0.3/css/scholar-icons.css" integrity="sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY=" crossorigin="anonymous"> <link defer rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons&amp;display=swap"> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-github.css?v=591dab5a4e56573bf4ef7fd332894c99" media="" id="highlight_theme_light"> <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A7%AD&lt;/text&gt;&lt;/svg&gt;"> <link rel="stylesheet" href="/assets/css/main.css?v=3116ba77db9ee1581d05bb3e86fbf7f1"> <link rel="canonical" href="https://khyong.github.io/projects/1_vla_interpretability/"> <script src="/assets/js/theme.js?v=5286c3e4c334d0ecb8fc0c40ff4fa7ec"></script> <link defer rel="stylesheet" href="/assets/css/jekyll-pygments-themes-native.css?v=5847e5ed4a4568527aa6cfab446049ca" media="none" id="highlight_theme_dark"> <script>
+    initTheme();
+  </script> </head> <body class="fixed-top-nav "> <header> <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top" role="navigation"> <div class="container"> <a class="navbar-brand title font-weight-lighter" href="/"> <span class="font-weight-bold">Hoyong</span> Kim </a> <button class="navbar-toggler collapsed navbar-toggler-main" type="button" data-nav-toggle="navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar top-bar"></span> <span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span> </button> <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav"> <ul class="navbar-nav navbar-menu-list flex-nowrap"> <li class="nav-item "> <a class="nav-link" href="/">about </a> </li> <li class="nav-item "> <a class="nav-link" href="/publications/">publications </a> </li> <li class="nav-item "> <a class="nav-link" href="/research/">research </a> </li> <li class="nav-item "> <a class="nav-link" href="/cv/">CV </a> </li> <li class="nav-item "> <a class="nav-link" href="/teaching/">teaching </a> </li> <li class="nav-item"> <button id="search-toggle" type="button" title="Search" aria-label="Open search"> <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span> </button> </li> <li class="toggle-container"> <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme"> <i class="fa-half-sun-moon" id="light-toggle-system"></i> <i class="fa-solid fa-moon" id="light-toggle-dark"></i> <i class="fa-solid fa-sun" id="light-toggle-light"></i> </button> </li> </ul> </div> </div> </nav> <progress id="progress" value="0"> <div class="progress-container"> <span class="progress-bar"></span> </div> </progress> </header> <div class="container mt-5" role="main"> <div class="post"> <header class="post-header"> <h1 class="post-title">Mechanistic interpretability of VLA models</h1> <p class="post-description">What do vision-language-action models represent, and how is their latent space organized?</p> </header> <article> <p>Vision-Language-Action (VLA) models map images and instructions to robot actions, but we know little about how their internal representations are organized. I study the <strong>latent space geometry</strong> of VLA models with tools from mechanistic interpretability, such as sparse autoencoders and probing, to answer questions like:</p> <ul> <li>Which features drive an action decision, and are they grounded in the visual scene or the language instruction?</li> <li>How do vision, language, and action representations align, and where does that alignment break?</li> <li>Can collapse phenomena known from classification (Neural Collapse, minority collapse) explain failure modes of policies?</li> </ul> <p>The goal is a geometric account of policy behavior that can be used to <strong>diagnose</strong> failures and <strong>shape</strong> representations during training.</p> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Hoyong Kim. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Last updated: November 05, 2026. </div> </footer> <script>
+  window.alFolio = {
+    compatBootstrap: false
+  };
+</script> <script src="/assets/js/nav-toggle.js?v=141bd79a73ebc0f0b6ea58e440ae79fc"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=e49affc7bd2646f6acdad1dbe02c2359" type="text/javascript"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/al_math/js/mathjax-setup.js"></script> <script src="/assets/js/tooltips-setup.js?v=fe487e99db6c43751e6e7bdb2d6a0611"></script> <script src="/assets/js/no_defer.js?v=53b1b1a645525975c963ce8bf8bfefcf"></script> <script defer src="/assets/js/common.js?v=87baac90f765f2f3362dcf6aaf312a8a"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=896d254890d9b47f0281f63bfccf0dee"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/al_img_tools/js/zoom.js"></script> <script defer src="/assets/js/progress-bar.js?v=499464c5c63ced6cf7ad62509f1e2610" type="text/javascript"></script> <script src="https://cdn.jsdelivr.net/npm/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js" integrity="sha256-uMJJ3EoTyfRBoTbR+lrfu1uRQ87RZG8AR3cVNuQVeFg=" crossorigin="anonymous"></script> <script>
+    addBackToTop();
+  </script> <script type="module" src="/assets/al_search/js/search/ninja-keys.min.js"></script> <ninja-keys hidebreadcrumbs noautoloadmdicons placeholder="Type to start searching"></ninja-keys> <script src="/assets/al_search/js/search-setup.js"></script> <script>
+// get the ninja-keys element
+const ninja = document.querySelector('ninja-keys');
+
+// add the home and posts menu items
+ninja.data = [{
+    id: "nav-about",
+    title: "about",
+    section: "Navigation",
+    handler: () => {
+      window.location.href = "/";
+    },
+  },{id: "nav-publications",
+          title: "publications",
+          description: "Publications in reversed chronological order. Use the box below to filter by title, author, or venue. A full list is also on Google Scholar.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/publications/";
+          },
+        },{id: "nav-research",
+          title: "research",
+          description: "Research directions, past and present. Each card summarizes a line of work and links to the related papers.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/research/";
+          },
+        },{id: "nav-cv",
+          title: "CV",
+          description: "Education, experience, awards, and service. The PDF download button above links to the latest CV.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
+          },
+        },{id: "nav-teaching",
+          title: "teaching",
+          description: "Courses I have taught or assisted.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/teaching/";
+          },
+        },{id: "news-our-paper-spherization-layer-representation-using-only-angles-was-accepted-to-neurips-2022",
+          title: 'Our paper Spherization Layer: Representation Using Only Angles was accepted to NeurIPS 2022!...',
+          description: "",
+          section: "News",},{id: "news-our-paper-on-the-fixed-non-negative-orthogonal-classifier-fnoc-was-accepted-to-iclr-2024",
+          title: 'Our paper on the Fixed Non-negative Orthogonal Classifier (FNOC) was accepted to ICLR...',
+          description: "",
+          section: "News",},{id: "news-two-papers-on-asymptotic-midpoint-mixup-and-softmax-masking-for-continual-learning-were-accepted-to-the-collas-2024-workshop-track",
+          title: 'Two papers on Asymptotic Midpoint Mixup and Softmax Masking for continual learning were...',
+          description: "",
+          section: "News",},{id: "news-i-received-my-ph-d-in-artificial-intelligence-from-gist-dissertation-from-theory-to-remedy-addressing-representation-collapse-for-enhanced-class-discriminative-clarity",
+          title: 'I received my Ph.D. in Artificial Intelligence from GIST. Dissertation: From Theory to...',
+          description: "",
+          section: "News",},{id: "news-two-papers-with-the-irr-lab-factor-wise-homogeneity-of-slot-attention-and-the-orthogonal-subspaces-projection-layer-were-accepted-to-icml-2026",
+          title: 'Two papers with the IRR Lab, Factor-Wise Homogeneity of Slot-Attention and the Orthogonal...',
+          description: "",
+          section: "News",},{id: "news-i-joined-the-dgist-innocore-research-group-for-bio-embodied-physical-ai",
+          title: 'I joined the DGIST InnoCORE Research Group for Bio-Embodied Physical AI.',
+          description: "",
+          section: "News",},{id: "news-i-was-selected-as-a-gold-reviewer-for-icml-2026",
+          title: 'I was selected as a Gold Reviewer for ICML 2026.',
+          description: "",
+          section: "News",},{id: "news-i-joined-the-vgi-lab-at-seoul-national-university-as-a-postdoctoral-researcher-working-with-prof-jaesik-park",
+          title: 'I joined the VGI Lab at Seoul National University as a postdoctoral researcher,...',
+          description: "",
+          section: "News",},{id: "news-our-paper-on-representational-consistency-of-identical-transformations-for-disentangled-representation-was-accepted-to-tmlr",
+          title: 'Our paper on representational consistency of identical transformations for disentangled representation was accepted...',
+          description: "",
+          section: "News",},{id: "news-our-paper-does-mixed-label-imbalance-matter-to-minority-collapse-in-imbalanced-learning-was-accepted-to-neurips-2026-see-you-in-sydney",
+          title: 'Our paper Does Mixed Label Imbalance Matter to Minority Collapse in Imbalanced Learning?...',
+          description: "",
+          section: "News",},{id: "projects-mechanistic-interpretability-of-vla-models",
+          title: 'Mechanistic interpretability of VLA models',
+          description: "What do vision-language-action models represent, and how is their latent space organized?",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_vla_interpretability/";
+            },},{id: "projects-world-models-for-robotics",
+          title: 'World models for robotics',
+          description: "3D geometry-aware representations for world models and world action models.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/2_world_models/";
+            },},{id: "projects-neural-collapse-and-representation-geometry",
+          title: 'Neural Collapse and representation geometry',
+          description: "How last-layer features and classifier weights organize, and what breaks when idealized assumptions fail.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_neural_collapse/";
+            },},{id: "projects-disentangled-and-object-centric-representations",
+          title: 'Disentangled and object-centric representations',
+          description: "Consistent symmetry representations, layer-wise factor separation, and slot attention under continual learning.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/4_disentanglement/";
+            },},{id: "projects-imbalanced-and-continual-learning",
+          title: 'Imbalanced and continual learning',
+          description: "Margin balancing, stable replay, and class-wise interference in the last layer.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/4_imbalanced_continual/";
+            },},{id: "projects-text-mining-for-news-issue-analysis",
+          title: 'Text mining for news issue analysis',
+          description: "Hierarchical and incremental clustering of news articles, Korean word similarity, and applied data mining.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/5_text_mining/";
+            },},{id: "teachings-natural-language-processing",
+          title: 'Natural Language Processing',
+          description: "Graduate course at the AI Graduate School, GIST. I served as the teaching assistant and ran the lab projects.",
+          section: "Teachings",handler: () => {
+              window.location.href = "/teachings/natural-language-processing-2022/";
+            },},{
+        id: 'social-email',
+        title: 'email',
+        section: 'Socials',
+        handler: () => {
+          window.open("mailto:%68%6F%79%6F%6E%67.%6B%69%6D.%39%36@%67%6D%61%69%6C.%63%6F%6D", "_blank");
+        },
+      },{
+        id: 'social-scholar',
+        title: 'Google Scholar',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://scholar.google.com/citations?user=PaBLiH4AAAAJ", "_blank");
+        },
+      },{
+        id: 'social-github',
+        title: 'GitHub',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://github.com/khyong", "_blank");
+        },
+      },{
+        id: 'social-linkedin',
+        title: 'LinkedIn',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://www.linkedin.com/in/hoyong-kim-66220a175", "_blank");
+        },
+      },{
+        id: 'social-orcid',
+        title: 'ORCID',
+        section: 'Socials',
+        handler: () => {
+          window.open("https://orcid.org/0000-0002-1608-1939", "_blank");
+        },
+      },{
+        id: 'social-cv',
+        title: 'CV',
+        section: 'Socials',
+        handler: () => {
+          window.open("/assets/pdf/CV_HoyongKim.pdf", "_blank");
+        },
+      },{
+        id: 'social-rss',
+        title: 'RSS Feed',
+        section: 'Socials',
+        handler: () => {
+          window.open("/feed.xml", "_blank");
+        },
+      },{
+      id: 'light-theme',
+      title: 'Change theme to light',
+      description: 'Change the theme of the site to Light',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("light");
+      },
+    },
+    {
+      id: 'dark-theme',
+      title: 'Change theme to dark',
+      description: 'Change the theme of the site to Dark',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("dark");
+      },
+    },
+    {
+      id: 'system-theme',
+      title: 'Use system default theme',
+      description: 'Change the theme of the site to System Default',
+      section: 'Theme',
+      handler: () => {
+        setThemeSetting("system");
+      },
+    },];
+
+</script> <script src="/assets/al_search/js/shortcut-key.js"></script> </body> </html>
